@@ -15,7 +15,7 @@ public class BMW extends Vehicles {
 
     // toString method displaying all data
     public String toString() {
-        return "Make:" + getMake() + "\nModel:" + getModel() + "\nYear: " + getYear() + "\nColor: " + getColor();
+        return "Make: " + getMake() + "\nModel: " + getModel() + "\nYear: " + getYear() + "\nColor: " + getColor();
     }
 
 }
