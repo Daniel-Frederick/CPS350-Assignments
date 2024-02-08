@@ -1,8 +1,8 @@
-package Resources;
 
-/* Stack Notes
-syncranizatoin
-First in Last out
+/* Data Structure: Stack
+
+notes: 
+https://drive.google.com/file/d/1wJHHHWqm353zoHqWMJIRRQ-daiw3EPuz/view?usp=drive_link
 
 methods:
 push - adds a new element to the stack
@@ -33,11 +33,11 @@ public class Stacks {
 
 	// push elements into the stack
 	public void push(int value) {
-		// check if stack not full
+		// check if stack full
 		if(top  < maxSize - 1) {
 			//go to top and add value (++ increment)
 			stackArray[++top] = value;
-			}
+		}
 		else {
 			System.out.println("Stack is full, cannot push more values");
 		}
@@ -48,25 +48,24 @@ public class Stacks {
 		if(top >= 0) {
 			// return top value and decrement
 			return stackArray[top--];
-			}else {
-				System.out.println("Stack is empty, cannot pop values");
-			}
+		}else {
+			System.out.println("Stack is empty, cannot pop values");
+		}
 		//return invalid value
 		return -1;
 	}
-
-	
 
 	// method to check if stack empty or not
 	public int peek() {
 		// check if stack is not empty
 		if(top >=0) {
+			// Return the top element
 			return stackArray[top];
 		}else {
 			System.out.println("Stack is empty,unable to peek");
 		}
 		//return invalid value
-				return -1;
+		return -1;
 	}
 
 	// check if the stack is completely empty
