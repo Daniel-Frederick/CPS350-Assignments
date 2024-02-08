@@ -11,6 +11,8 @@ public class Driver {
         Scanner idScanner = new Scanner(System.in); 
         Scanner nameScanner = new Scanner(System.in);   
 
+        CustomerSort sort = new CustomerSort();
+
         try {
         // ask the user for the number of customer records they intend to input.
         out.print("How many number of customer records do you have?  ");
@@ -34,26 +36,34 @@ public class Driver {
             out.println("\nEnter customer's full name(First and Last): ");
             // String of Customer's full name
             String name = nameScanner.nextLine();
-            names[i] = name;            
+            names[i] = name.trim();  
         }
         out.println();
 
         // Debugging: For displaying all the elements in both arrays
-        // for(int i = 0; i < ids.length; i++) {
-        //     out.print(ids[i] + ", ");
-        // }
+        System.out.println("Orginial arrays");
+        for(int i = 0; i < ids.length; i++) {
+            out.print(ids[i] + ", ");
+        }
 
-        // out.println();
+        out.println();
 
-        // for(int i = 0; i < ids.length; i++) {
-        //     out.print(names[i] + ", ");
-        // }
+        for(int i = 0; i < ids.length; i++) {
+            out.print(names[i] + ", ");
+        }
 
         // TODO: Sort the arrays
         // sortCustomerIDs
+        // out.println("before the sort one");
+        sort.sortCustomerIDs(ids);
+
+        // out.println("end of first start of second sort");
         // sortCustomerNames
+        sort.sortCustomerNames(names);
 
         // Display the sorted customer arrays
+        System.out.println();
+        System.out.println("after sorting arrays");
         for(int i = 0; i < ids.length; i++) {
             out.print(ids[i] + ", ");
         }
