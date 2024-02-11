@@ -2,10 +2,10 @@ package frederick_daniel_customer_info;
 
 public class CustomerSort extends Customer{
     
-    // Shell Sort
+    // Shell Sort - Sort customer by ID
     public int[] sortCustomerIDs(int[] ids, String[] names) {
         int n = ids.length;
-        int gap = n / 2;
+        int gap = n / 2; 
     
         while (gap > 0) {
             for (int i = gap; i < n; i++) {
@@ -26,7 +26,7 @@ public class CustomerSort extends Customer{
     }
     
 
-    // Insertion
+    // Insertion sort - Sort customer by names
     public String[] sortCustomerNames(int[] ids, String[] names) {
         for (int i = 1; i < names.length; i++) {
             String currentName = names[i];

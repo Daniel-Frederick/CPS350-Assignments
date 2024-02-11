@@ -11,12 +11,12 @@ public class Driver {
         // Init a new CustomerSort Object 
         CustomerSort sort = new CustomerSort();
 
+        // try-catch to help with debugging
         try {
             // init integer of number of customer records
             int records;
 
             // Prompt user to enter the number of customer records (integer)
-
             while (true) {
                 // Ask the user for the number of customer records they intend to input.
                 out.print("Enter the maximum number of customers: ");
@@ -44,7 +44,7 @@ public class Driver {
             for(int i = 0; i < records; i++) {
                 // Prompt user to add a customer
                 out.println("Do you want to add a customer? (Y/N)");
-                String addCustomer = scanner.nextLine().toLowerCase(); // Convert input to lowercase for easier comparison
+                String addCustomer = scanner.nextLine().toLowerCase(); 
 
                 if (addCustomer.equals("y") || addCustomer.equals("yes")) {
                     // Add a customer
@@ -104,7 +104,7 @@ public class Driver {
                 }
             }
 
-            out.println();
+            out.println(); // Adds spacing for nicer formatting
 
             // Display all the elements in both arrays
             out.println("Records with no sorting: ");
@@ -115,7 +115,7 @@ public class Driver {
 
             out.println();
 
-            // sortCustomerIDs
+            // sortCustomerIDs - Using Shell sort, sort customers by IDs
             sort.sortCustomerIDs(ids, names);
 
             out.println("After sorting by IDs: ");
@@ -126,7 +126,7 @@ public class Driver {
 
             out.println();
 
-            // sortCustomerNames
+            // sortCustomerNames - Using Insertion sort, sort customers by names
             sort.sortCustomerNames(ids, names);
 
             out.println("After sorting by names: ");
@@ -137,7 +137,7 @@ public class Driver {
             }
 
         } catch (Exception e) {
-            // Handle any unexpected exceptions
+            // Handle any unexpected errors
             e.printStackTrace();
         }
     }
