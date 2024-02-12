@@ -9,4 +9,4 @@ Assignment 1: https://drive.google.com/file/d/1JNSMw7mJ8bpuucgcBlVIVNZZkxa_vsFi/
 
 Customer Info: https://drive.google.com/file/d/10AfDZohJXvBlO6zChVpJ_vGupZi-kiFQ/view?usp=drive_link
 
-companyInventory: https://drive.google.com/file/d/1urpQN9QGJVlFkgfe1l6pKL-Jn-3BA2eJ/view?usp=drive_link
+Company Inventory: https://drive.google.com/file/d/1urpQN9QGJVlFkgfe1l6pKL-Jn-3BA2eJ/view?usp=drive_link
