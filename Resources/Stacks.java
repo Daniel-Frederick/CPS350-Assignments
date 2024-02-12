@@ -10,6 +10,9 @@ pop - removes the top element from the stack
 peek - Checks if the stack is empty or not
 isEmpty - checks if the stack is empty (boolean)
 size - returns the size of the stack
+
+other methods:
+empty - Removes all elements from stack
 */ 
 
 //Skeleton class of a Java Stacks 
@@ -78,4 +81,15 @@ public class Stacks {
 	public int size() {
 		return top + 1;
 	}
+
+
+	// Extra method I made
+	// Removes all elements from the stack
+	public void empty(Stacks stack) {
+		while(!stack.isEmpty()) { // Check to see if the stack is empty
+            int value = stack.pop();
+            System.out.println(value);
+        }
+	}
+
 }
