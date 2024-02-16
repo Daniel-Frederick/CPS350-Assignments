@@ -1,3 +1,4 @@
+package resources.dataStructures;
 public class Queues {
 
     private int[] queue; // Array to store queue elements

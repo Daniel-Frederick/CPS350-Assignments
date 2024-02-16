@@ -1,3 +1,4 @@
+package resources.sorts;
 /* Sorting Algorithm: Selection Sort
 
 Notes:

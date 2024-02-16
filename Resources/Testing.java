@@ -1,3 +1,6 @@
+import DataStructures.Queues;
+import DataStructures.Stacks;
+
 public class Testing {
 
     public static void main(String[] args) {

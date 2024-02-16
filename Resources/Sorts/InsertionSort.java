@@ -1,3 +1,4 @@
+package resources.sorts;
 /* Sorting Algorithm: Insertion Sort
 
 Notes: 
