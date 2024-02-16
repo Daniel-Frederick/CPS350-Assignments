@@ -2,7 +2,47 @@ public class Testing {
 
     public static void main(String[] args) {
 
-        // Stacks testing 
+        // Queues Testing
+        Queues queue = new Queues(5); // Create a queue with capacity 5
+
+        // Enqueue elements
+        queue.enqueue(1);
+        queue.enqueue(2);
+        queue.enqueue(3);
+
+        // Peek at the front element
+        System.out.println("Peek at front element: " + queue.peek()); // Should show 1
+
+        // Dequeue elements
+        while (!queue.isEmpty()) {
+            System.out.println("Dequeue element: " + queue.dequeue());
+        }
+
+        // Check if queue is empty
+        System.out.println("Is the queue empty? " + queue.isEmpty());
+
+
+
+        // **** Stacks testing ****
+        Stacks stack = new Stacks(5); // Create a stack with capacity 5
+
+        // Push elements
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+
+        // Peek at the top element
+        System.out.println("Peek at top element: " + stack.peek()); // Should show 3
+
+        // Pop elements
+        while (!stack.isEmpty()) {
+            System.out.println("Pop element: " + stack.pop());
+        }
+
+        // Check if stack is empty
+        System.out.println("Is the stack empty? " + stack.isEmpty());
+
+        /*
         Stacks stack = new Stacks(5);
 
         stack.push(10);
@@ -58,6 +98,7 @@ public class Testing {
 
 
         System.out.println(bucket.isEmpty());
+        */
         
     }
 
