@@ -1,4 +1,17 @@
 package resources.dataStructures;
+
+/* Data Structure: Stack
+
+notes: 
+
+methods:
+enqueue - Method to add an element to the queue
+dequeue - Method to remove and return the front element of the queue
+isEmpty - Method to check if the queue is empty
+isFull - Method to check if the queue is full
+peek - Method to get the front element of the queue without removing it
+*/ 
+
 public class Queues {
 
     private int[] queue; // Array to store queue elements

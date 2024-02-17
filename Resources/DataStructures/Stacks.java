@@ -1,4 +1,4 @@
-package resources.dataStructures;
+package resources;
 
 /* Data Structure: Stack
 
@@ -8,12 +8,10 @@ https://drive.google.com/file/d/1wJHHHWqm353zoHqWMJIRRQ-daiw3EPuz/view?usp=drive
 methods:
 push - adds a new element to the stack
 pop - removes the top element from the stack
-peek - Checks if the stack is empty or not
+peek - checks if the stack is empty or not
 isEmpty - checks if the stack is empty (boolean)
 size - returns the size of the stack
-
-other methods:
-empty - Removes all elements from stack
+clear - method to clear the stack
 */ 
 
 //Skeleton class of a Java Stacks 
@@ -63,8 +61,14 @@ public class Stacks {
         return top == -1;
     }
 
+    // Check the size of the stack
+    public int size() {
+        return top + 1;
+    }
+
     // Method to clear the stack
     public void clear() {
         top = -1; // Simply reset top to -1 to "clear" the stack
     }
+
 }
