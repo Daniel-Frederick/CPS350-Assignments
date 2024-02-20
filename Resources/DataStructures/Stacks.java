@@ -1,4 +1,4 @@
-package resources;
+package resources.dataStructures;
 
 /* Data Structure: Stack
 
