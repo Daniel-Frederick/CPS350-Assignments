@@ -31,7 +31,7 @@ public class Queues {
         size = 0;
     }
 
-    // Method to add an element to the queue
+    // Method to add an element to the queue. O(1)
     public void enqueue(int item) {
         if (size < capacity) {
             rear = (rear + 1) % capacity; // Circular increment
@@ -42,7 +42,7 @@ public class Queues {
         }
     }
 
-    // Method to remove and return the front element of the queue
+    // Method to remove and return the front element of the queue. O(1)
     public int dequeue() {
         if (size > 0) {
             int item = queue[front];
@@ -55,17 +55,17 @@ public class Queues {
         }
     }
 
-    // Method to check if the queue is empty
+    // Method to check if the queue is empty. O(1)
     public boolean isEmpty() {
         return size == 0;
     }
 
-    // Method to check if the queue is full
+    // Method to check if the queue is full. O(1)
     public boolean isFull() {
         return size == capacity;
     }
 
-    // Method to get the front element of the queue without removing it
+    // Method to get the front element of the queue without removing it. O(1)
     public int peek() {
         if (size > 0) {
             return queue[front];

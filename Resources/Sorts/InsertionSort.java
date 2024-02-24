@@ -1,8 +1,5 @@
 package resources.sorts;
 /* Sorting Algorithm: Insertion Sort
-Insertion Sort: 
-
-Key Concept - 
 
 Time Complexity:
 best - O(n) (When the array is already sorted)

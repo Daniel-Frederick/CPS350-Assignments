@@ -1,10 +1,5 @@
 package resources.sorts;
 /* Sorting Algorithm: Shell Sort
-key concept: Decrease and conquer
-
-Insertion Sort: 
-
-Key Concept - 
 
 Time Complexity:
 best - O(n log(n)) or O(n^(3/2)) depending on the gap sequence used

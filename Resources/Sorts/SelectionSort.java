@@ -1,8 +1,6 @@
 package resources.sorts;
 /* Sorting Algorithm: Selection Sort
 
-Key Concept - 
-
 Time Complexity:
 best - O(n^2)
 average - O(n^2)
