@@ -2,6 +2,8 @@ package resources.dataStructures;
 
 /* Data Structure: Stack
 
+FILO - First In Last Out
+
 notes: 
 https://drive.google.com/file/d/1wJHHHWqm353zoHqWMJIRRQ-daiw3EPuz/view?usp=drive_link
 
@@ -14,7 +16,7 @@ size - returns the size of the stack
 clear - method to clear the stack
 */ 
 
-//Skeleton class of a Java Stacks 
+//Skeleton class of a Java Stack
 public class Stacks {
     private int[] stack; // Array to store stack elements
     private int top; // Index of the top element in the stack

@@ -1,6 +1,7 @@
 package resources.dataStructures;
 
 /* Data Structure: Stack
+FIFO - First In First Out
 
 notes: 
 
@@ -12,6 +13,7 @@ isFull - Method to check if the queue is full
 peek - Method to get the front element of the queue without removing it
 */ 
 
+//Skeleton class of a Java Queue
 public class Queues {
 
     private int[] queue; // Array to store queue elements
