@@ -1,7 +1,6 @@
 package resources.dataStructures;
 
 /* Data Structure: Stack
-
 FILO - First In Last Out
 
 notes: 
