@@ -15,7 +15,7 @@ size - returns the size of the stack
 clear - method to clear the stack
 */ 
 
-//Skeleton class of a Java Stack
+// Skeleton class of a Java Stack
 public class Stacks {
     private int[] stack; // Array to store stack elements
     private int top; // Index of the top element in the stack

@@ -13,7 +13,7 @@ isFull - Method to check if the queue is full
 peek - Method to get the front element of the queue without removing it
 */ 
 
-//Skeleton class of a Java Queue
+// Skeleton class of a Java Queue
 public class Queues {
 
     private int[] queue; // Array to store queue elements
@@ -35,8 +35,8 @@ public class Queues {
     public void enqueue(int item) {
         if (size < capacity) {
             rear = (rear + 1) % capacity; // Circular increment
-            queue[rear] = item;
             size++;
+            queue[rear] = item;
         } else {
             System.out.println("Queue is full");
         }
