@@ -1,4 +1,4 @@
-# CPS350-labs
+# CPS350 Assignments
 
 Assignments from my class Programming and Algorithms (CPS 350)
 
