@@ -38,7 +38,7 @@ yes, its in-place nature and simplicity make it suitable for sorting small colle
 ---- ---- ---- ----
 Notes:
 Prof: https://drive.google.com/file/d/1rFlWgjcd64FKnP5bPhHI1a8ZXMnU_38x/view?usp=drive_link
-Mine: 
+Mine: https://drive.google.com/file/d/1RhRZxLxD5KmTw1BvzFNLt8SUpjtvXCoe/view?usp=drive_link
 */
 
 public class ShellSort<T extends Comparable<T>> {
