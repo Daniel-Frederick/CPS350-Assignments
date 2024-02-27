@@ -3,20 +3,46 @@ package frederick_daniel_restaurant_order;
 public class RestaurantManagement {
     
     public static void main(String[] args) {
-        // SOP: how many order are you making?
 
+        // Create queue
         ArrayQueue orderQueue = new ArrayQueue(10);
-        OrderStack processedOrderStack = new OrderStack(10);
 
+        // Create stack
+        OrderStack orderStack = new OrderStack(10);
+
+        // Creating orders
         Order order1 = new Order(1, "Burger and Fries");
         Order order2 = new Order(2, "Pizza");
 
-        order1.orderQueuing(order1, orderQueue);
-        order2.orderQueuing(order2, orderQueue);
+        // Adding orders
+        orderQueue.enqueue(order1); // Add order1
+        orderQueue.enqueue(order2); // Add order2
 
-        order1.orderProcessing(order1, orderQueue, processedOrderStack);    
-        order2.orderProcessing(order2, orderQueue, processedOrderStack);    
+        System.out.println(); // Spacing
 
+        // Processing orders
+        orderQueue.dequeue(); // Remove from queue to process order1
+        orderStack.push(order1); // Add order1 to stack
+
+        System.out.println(); // Spacing
+
+        orderQueue.dequeue(); // Remove from queue to process order2
+        orderStack.push(order2); // Add order2 to stack
+
+        System.out.println(); // Spacing
+
+        // Reviewing last processed order
+        orderStack.peek(); // Review the last order added in stack
+
+        System.out.println(); // Spacing
+
+        // Undoing last processed order
+        orderStack.pop(); // Remove the last order in stack
+
+        System.out.println(); // Spacing
+
+        // Reviewing Last Processed Order (after undo)...
+        orderStack.peek(); // Review the new top order in stack
 
     }
 

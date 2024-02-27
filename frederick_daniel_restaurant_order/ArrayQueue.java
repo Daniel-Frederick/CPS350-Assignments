@@ -10,34 +10,35 @@ public class ArrayQueue {
 
     // Constructor to initialize the queue
     public ArrayQueue(int capacity) {
-        this.capacity = capacity;
-        queue = new Order[capacity];
-        front = 0;
-        rear = -1;
-        size = 0;
+        this.capacity = capacity; // Create capacity for array size
+        queue = new Order[capacity]; // Create array for queue
+        front = 0; // Pointer to the front of the queue
+        rear = -1; // Pointer to the back of the queue
+        size = 0; // How many elements in array
     }
 
-    // Method to add an element to the queue    
+    // Method to add an order to the queue    
     public void enqueue(Order order) {
-        if (size < capacity) {
-            rear = (rear + 1) % capacity; // Circular increment
-            queue[rear] = order;
-            size++;
+        if (size < capacity) { // Check if the array is full
+            rear = (rear + 1) % capacity; // add the new order to the back of the queue so adjust rear
+            queue[rear] = order; // Assign last element to the new order 
+            size++; // Increase the size to keep track of how many orders are in queue
+            System.out.println("Order Added: " + order.toString()); // Print the order was added successfully
         } else {
-            System.out.println("Queue is full");
+            // Print the order was not added successful because the queue is full
+            System.out.println("Overflow! Can not add anymore orders!"); 
         }
     }
 
-    // Method to remove and return the front element of the queue
-    public Order dequeue() {
-        if (size > 0) {
-            Order order = queue[front];
-            front = (front + 1) % capacity; // Circular increment
-            size--;
-            return order;
+    // Method to remove and return the front order of the queue
+    public void dequeue() {
+        System.out.println("Processing Order... "); // Print that an attempt to remove an order was made
+        if (size > 0) { // Check if the queue is not empty
+            front = (front + 1) % capacity; // Remove the order from the front of the queue so adjust the front
+            size--; // Adjust the size of the queue for removing an order
         } else {
-            System.out.println("Queue is empty");
-            return new Order(-1,null); // Return an error value or throw an exception
+            // Print the removal of an order was not successful because the queue is empty
+            System.out.println("There are no orders to process!"); 
         }
     }
 
