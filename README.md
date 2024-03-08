@@ -1,6 +1,6 @@
-# CPS350 Assignments
+# Data Structures and Algorithms Assignments and Notes
 
-Assignments from my class Programming and Algorithms (CPS 350)
+Assignments from my UD course Data Structures and Algorithms (CPS 350)
 
 Resources - Contains my notes
 
