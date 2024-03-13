@@ -1,4 +1,4 @@
-package resources.dataStructures;
+package resources.dataStructures.linear;
 
 /* Data Structure: Stack
 FILO - First In Last Out

@@ -1,4 +1,4 @@
-package resources.dataStructures;
+package resources.dataStructures.linear;
 
 // Definition of the HashedDictionary class with generic types K (for Key) and V (for Value).
 public class LinearHashtable<K, V> {

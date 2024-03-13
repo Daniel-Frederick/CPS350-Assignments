@@ -7,7 +7,7 @@
  * with high load factors.
  */
 
- package resources.dataStructures;
+ package resources.dataStructures.nonlinear;
 
  public class QuadraticHashtable<K, V> {
      // Number of key-value pairs currently stored in the hash table.

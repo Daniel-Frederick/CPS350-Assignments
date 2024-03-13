@@ -1,4 +1,4 @@
-package resources.dataStructures;
+package resources.dataStructures.linear;
 import java.util.PriorityQueue; // Import for PriorityQueue
 
 /* Data Structure: Priority Queue

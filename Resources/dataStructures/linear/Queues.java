@@ -1,4 +1,4 @@
-package resources.dataStructures;
+package resources.dataStructures.linear;
 
 /* Data Structure: Stack
 FIFO - First In First Out
