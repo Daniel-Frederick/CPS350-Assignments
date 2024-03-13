@@ -1,5 +1,6 @@
 package resources.dataStructures.nonlinear;
 
+// Simple Node class for a Binary Search Tree (BST)
 public class Node {
     int data; // Node value
     Node left, right; // Left and Right children
