@@ -14,18 +14,24 @@ public class AVLTreeDemo {
 
             switch (menu) {
                 case 1:
+                    // Inserting works 100%
                     insertNode();
+                    insertNodeRepeat();
                     break;
                 case 2:
+                    // Deleting works, I think
                     deleteNode();
                     break;
                 case 3:
+                    // Does not print the result to screen
                     searchNode();
                     break;
                 case 4:
+                    // Printing the tree in pre-order is correct 100%
                     printTree();
                     break;
                 case 5:
+                    // Exiting Works 100%
                     System.out.println("Existing Program... ");
                     System.exit(menu);
                     break;
@@ -49,8 +55,25 @@ public class AVLTreeDemo {
         System.out.print("Enter the value to insert: ");
         int value = scanner.nextInt();
         tree.insert(value);
+        scanner.nextLine(); // Consume input
         System.out.println("Node inserted successfully!");
     }
+
+    private static void insertNodeRepeat() {
+        while (true) {
+            System.out.print("Would you like to insert anther node? (Yes/No): ");
+            String insertAgain = scanner.nextLine().trim().toLowerCase();
+            if (insertAgain.equals("yes") || insertAgain.equals("y")) {
+                System.out.print("Enter integer value to insert: ");
+                int value = scanner.nextInt();
+                tree.insert(value);
+            } else if (insertAgain.equals("no") || insertAgain.equals("n")) {
+                break;
+            }
+            scanner.nextLine(); // Consume input
+        }
+    }
+    
 
     private static void deleteNode() {
         System.out.print("Enter the value to delete: ");
@@ -59,9 +82,10 @@ public class AVLTreeDemo {
     }
 
     private static void searchNode() {
-        System.out.print("Enter the value to search: ");
-        int value = scanner.nextInt();
-        boolean found = tree.search(value);
+        System.out.print("Enter Integer value to search: ");
+        int data = scanner.nextInt();
+        boolean found = tree.search(data);
+        System.out.println("Search result for " + data + " : " + (found ? "Found" : "Not Found")); // Ternary Operator
     }
 
     private static void printTree() {
