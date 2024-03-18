@@ -1,53 +1,5 @@
 package frederick_daniel_AVLTree;
 
-// public class AVLTree { // https://www.youtube.com/results?search_query=avl+tree+in+data+structure
-//     Node root; // The root node of the binary tree
-
-//     public AVLTree(Node root) {
-//         this.root = root;
-//     }
-
-//     // Method to insert a new node with the given data into the tree.
-//     public void insert(int data) {
-
-//     }
-
-//     // Method to delete a node with the given data from the tree.
-//     public void delete(int data) {
-
-//     }
-
-//     // Method to search for a node with the given data in the tree.
-//     public void search(int data) {
-
-//     }
-
-//     // Method to perform a right rotation on the given node.
-//     public void rightRotate(Node node) {
-
-//     }
-
-//     // Method to perform a left rotation on the given node.
-//     public void leftRotate(Node node) {
-
-//     }
-
-//     // Helper method to get the height of a given node.
-//     public void getHeight(Node node) {
-
-//     }
-
-//     // Helper method to calculate the balance factor of a given node.
-//     public void getBalanceFactor(Node node) {
-
-//     }
-
-//     public void printTree() {
-
-//     }
-
-// }
-
 public class AVLTree {
     private Node root;
 
@@ -219,6 +171,7 @@ public class AVLTree {
         return current;
     }
 
+    // Prints the tree in Pre-Order
     public void preOrderTraversal(Node node) {
         if (node != null) {
             System.out.print(node.data + " ");
