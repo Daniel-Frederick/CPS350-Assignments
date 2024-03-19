@@ -28,7 +28,7 @@ public class BinarySearchTree {
         root = null; // Initializes the root of the binary tree to null
     }
 
-    // ------- Level Order(LNR) ----------
+    // ------- Level Order ----------
 	// Method for level order traversal of the binary tree
     void levelOrder(Node root) {
 	    // If the tree is empty, return immediately
