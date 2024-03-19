@@ -181,8 +181,13 @@ public class AVLTree {
     }
 
     public void printPreOrder() {
-        System.out.println("Pre-order traversal:");
+        System.out.println("Pre-order traversal of the AVL Tree:");
+        if(root == null) {
+            System.out.println("AVLTree is Empty");
+        }
+        else {
         preOrderTraversal(root);
+        }
         System.out.println();
     }
 }
