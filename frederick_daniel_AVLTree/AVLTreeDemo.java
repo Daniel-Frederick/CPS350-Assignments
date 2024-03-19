@@ -1,5 +1,6 @@
 package frederick_daniel_AVLTree;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class AVLTreeDemo {
@@ -9,13 +10,23 @@ public class AVLTreeDemo {
     public static void main(String[] args) {
 
         while (true) {
-            printMenu();
-            int menu = scanner.nextInt();
+            int menu;
+            while(true) {
+                printMenu();
+                // int menu = scanner.nextInt();
+                if(scanner.hasNextInt()) { // Check if input is an integer
+                    menu = scanner.nextInt();
+                    break;
+                }
+                else {
+                    System.out.println("Invalid input. Please enter one of the options!");
+                    scanner.nextLine(); // Consume the invalid input
+                }
+            }
 
             switch (menu) {
                 case 1:
                     // Inserting works 100%
-                    insertNode();
                     insertNodeRepeat();
                     break;
                 case 2:
@@ -23,11 +34,11 @@ public class AVLTreeDemo {
                     deleteNode();
                     break;
                 case 3:
-                    // Does not print the result to screen
+                    // Searching works 100%
                     searchNode();
                     break;
                 case 4:
-                    // Printing the tree in pre-order is correct 100%
+                    // Printing works 100%
                     printTree();
                     break;
                 case 5:
@@ -42,54 +53,72 @@ public class AVLTreeDemo {
     }
 
     private static void printMenu() {
+        System.out.println();
         System.out.println("AVL Tree Operations");
         System.out.println("1. Insert Node");
         System.out.println("2. Delete Node");
         System.out.println("3. Search Node");
         System.out.println("4. Print Tree");
         System.out.println("5. Exit");
-        System.out.print("Enter your choice: ");
-    }
-
-    private static void insertNode() {
-        System.out.print("Enter the value to insert: ");
-        int value = scanner.nextInt();
-        tree.insert(value);
-        scanner.nextLine(); // Consume input
-        System.out.println("Node inserted successfully!");
+        System.out.print("Choose an option: ");
     }
 
     private static void insertNodeRepeat() {
+    String insertAgain;
+    do {
+        System.out.print("Enter integer value to insert: ");
+        int value;
         while (true) {
-            System.out.print("Would you like to insert anther node? (Yes/No): ");
-            String insertAgain = scanner.nextLine().trim().toLowerCase();
-            if (insertAgain.equals("yes") || insertAgain.equals("y")) {
-                System.out.print("Enter integer value to insert: ");
-                int value = scanner.nextInt();
-                tree.insert(value);
-            } else if (insertAgain.equals("no") || insertAgain.equals("n")) {
+            try {
+                value = scanner.nextInt();
+                scanner.nextLine(); // Consume the newline character
                 break;
+            } catch (Exception e) { // User entered a String instead of integer
+                System.out.println("Invalid input! Please enter an integer value!");
+                scanner.nextLine(); // Consume the invalid input
             }
-            scanner.nextLine(); // Consume input
         }
-    }
-    
+        tree.insert(value);
+
+        System.out.print("Would you like to insert another node? (Yes/No): ");
+        insertAgain = scanner.nextLine().trim().toLowerCase();
+    } while (insertAgain.equals("yes") || insertAgain.equals("y"));
+}
 
     private static void deleteNode() {
         System.out.print("Enter the value to delete: ");
-        int value = scanner.nextInt();
+        int value;
+        while (true) {
+            try {
+                value = scanner.nextInt();
+                scanner.nextLine(); // Consume the newline character
+                break;
+            } catch (Exception e) { // User entered a String instead of integer
+                System.out.println("Invalid input. Please enter an integer value.");
+                scanner.nextLine(); // Consume the invalid input
+            }
+        }
         tree.delete(value);
     }
 
     private static void searchNode() {
         System.out.print("Enter Integer value to search: ");
-        int data = scanner.nextInt();
+        int data;
+        while (true) {
+            try {
+                data = scanner.nextInt();
+                scanner.nextLine(); // Consume the newline character
+                break;
+            } catch (Exception e) { // User entered a String instead of integer
+                System.out.println("Invalid input. Please enter an integer value.");
+                scanner.nextLine(); // Consume the invalid input
+            }
+        }
         boolean found = tree.search(data);
-        System.out.println("Search result for " + data + " : " + (found ? "Found" : "Not Found")); // Ternary Operator
+        System.out.println("Search result for " + data + ": " + (found ? "Found" : "Not Found")); // Ternary Operator
     }
 
     private static void printTree() {
-        System.out.println("Printing the AVL Tree...");
         tree.printPreOrder();
     }
 }
