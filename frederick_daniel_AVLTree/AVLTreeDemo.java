@@ -1,6 +1,5 @@
 package frederick_daniel_AVLTree;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class AVLTreeDemo {
