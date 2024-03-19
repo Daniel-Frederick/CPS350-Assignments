@@ -1,15 +1,26 @@
 package resources.dataStructures.nonlinear;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
-/* Data Structure: Binary Search Tree
+/* Data Structure: Binary Search Tree */
 
-
-
-
- */
-
+// Basic Binary Search Tree Java Class 
 public class BinarySearchTree {    
+
+    // Simple Node class for a Binary Search Tree (BST)
+    public class Node {
+        int data; // Node value
+        Node left, right; // Left and Right children
+
+        // Node constructor initializes the node with data and null children
+        public Node(int data) {
+            this.data = data; // Give 
+            left = right = null; // Children initially start at null
+        }
+    }
+
+
     Node root; // The root node of the binary tree
 
 	 // Constructor for BinaryTree
