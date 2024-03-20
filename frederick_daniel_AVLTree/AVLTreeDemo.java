@@ -40,7 +40,7 @@ public class AVLTreeDemo {
           break;
         case 5:
           // User entered "5" and wants to exit the program
-          System.out.println("Existing Program... ");
+          System.out.println("Exiting Program... ");
           System.exit(menu); // Exits the program
           break;
         default:
@@ -129,8 +129,7 @@ public class AVLTreeDemo {
     System.out.println("Search result for " + data + ": " + (found ? "Found" : "Not Found")); // Ternary Operator used to print the result
   }
 
-  // User wants to print the AVLTree
-  private static void printTree() {
+    private static void printTree() {
     // There is no user input in this method so we only need to call the printPreOrder() method
     tree.printPreOrder();
   }
