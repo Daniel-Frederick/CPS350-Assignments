@@ -66,14 +66,15 @@ public class AVLTree {
      * @return Node
      */
     public Node insert(Node node, int data) {
+        // Base case: If the AVLTree is empty, Create new Node to be the root 
         if (node == null) // If the AVLTree is empty, then the first Node entered is the root
-            return new Node(data); // Create new Node to be the root
+            return new Node(data);
 
         // If the AVLTree is NOT empty
-        if (data < node.data) // Is the new Node less than the root node?
+        if (data < node.data) // Is the new Node less than the subtree root?
             // If true: using recursion, go to the left child of the current Node
             node.left = insert(node.left, data); 
-        else if (data > node.data) // Is the new Node greater than the root node?
+        else if (data > node.data) // Is the new Node greater than the subtree root?
             // If true: using recursion, go to the right child of the current Node
             node.right = insert(node.right, data);
         else // Tests: if(data == node.data)
@@ -100,17 +101,17 @@ public class AVLTree {
 
         // Tree is unbalaced according to the Left Right Case
         if (balanceFactor > 1 && data > node.left.data) {
-            // Rotate the right grandchild to the left, taking the place of the left child of the subtree root
+            // If true, perform a left rotation on the left child of the current node to balance its left subtree
             node.left = rotateLeft(node.left);
-            // Now the tree is unbalanced according to the Left Left Case so rotate right like normal
+            // Perform a right rotation on the current node to balance the tree
             return rotateRight(node);
         }
 
         // Tree is unbalaced according to the Right Left Case
         if (balanceFactor < -1 && data < node.right.data) {
-            // Rotate the left grandchild to the right, taking the place of the right child of the subtree root
+            // If true, perform a right rotation on the right child of the current node to balance its right subtree
             node.right = rotateRight(node.right);
-            // Now the tree is unbalanced according to the Right Right Case so rotate left like normal
+            // Perform a left rotation on the current node to balance the tree
             return rotateLeft(node);
         }
         // The Tree is now Balanced!
@@ -147,70 +148,96 @@ public class AVLTree {
     }
 
     public Node deleteNode(Node node, int data) {
+        // Base case: If the AVLTree is empty, return null
         if (node == null)
             return node;
-
-        if (data < node.data)
+    
+        // If the AVLTree is NOT empty
+        if (data < node.data) // Is the data to be deleted less than the subtree root?
+            // If true: using recursion, go to the left child of the current Node
             node.left = deleteNode(node.left, data);
-        else if (data > node.data)
+        else if (data > node.data) // Is the data to be deleted greater than the subtree root?
+            // If true: using recursion, go to the right child of the current Node
             node.right = deleteNode(node.right, data);
-        else {
-            if (node.left == null || node.right == null) {
-                Node temp = null;
-                if (temp == node.left)
-                    temp = node.right;
+        else { // If the data to be deleted is found
+            if (node.left == null || node.right == null) { // Check if Node has 0 or 1 children
+                Node temp = null; // Temporary variable to replace the deleted node with child
+                if (temp == node.left) // Check if the child is the right node
+                    // If true: the node has a right child, set temp to the right child
+                    temp = node.right; 
                 else
+                    // The Node might have a left child, set temp to the left child
                     temp = node.left;
-
-                if (temp == null) {
+    
+                // Check if node has a child
+                if (temp == null) { // Check if Node is a leaf
+                    // If temp is still null, it means the node is a leaf node
                     temp = node;
-                    node = null;
-                } else
-                    node = temp;
-            } else {
+                    node = null; // Delete the node
+                } else // Node has 1 child
+                    node = temp; // Replace the node with its child
+            } else { // Node has 2 children
+                // Find the inorder successor: mininum value node in the right subtree
                 Node temp = minValueNode(node.right);
+                // Copy the inorder successor's data to this node
                 node.data = temp.data;
+                // Delete the inorder successor
                 node.right = deleteNode(node.right, temp.data);
             }
         }
-
-        if (node == null)
+        // We have deleted a Node from the tree!
+    
+        // If the tree had only one node, then return
+        if (node == null) // Check if the tree is empty
             return node;
-
+    
+        // Update the height of the current node
         node.height = 1 + Math.max(getHeight(node.left), getHeight(node.right));
-
+    
+        // Get the balance factor of the current node
         int balanceFactor = getBalanceFactor(node);
-
+    
+        // If the balance factor indicates an unbalanced condition, perform rotations to balance the tree
         if (balanceFactor > 1 && getBalanceFactor(node.left) >= 0)
+            // If true, perform a right rotation on the current node to balance the tree
             return rotateRight(node);
 
+        // Check if the balance factor of the current node indicates a left-heavy subtree and the balance factor of its left child is negative
         if (balanceFactor > 1 && getBalanceFactor(node.left) < 0) {
+            // If true, perform a left rotation on the left child of the current node to balance its left subtree
             node.left = rotateLeft(node.left);
+            // Perform a right rotation on the current node to balance the tree
             return rotateRight(node);
         }
 
+        // Check if the balance factor of the current node indicates a right-heavy subtree and the balance factor of its right child is non-positive
         if (balanceFactor < -1 && getBalanceFactor(node.right) <= 0)
+            // If true, perform a left rotation on the current node to balance the tree
             return rotateLeft(node);
 
+        // Check if the balance factor of the current node indicates a right-heavy subtree and the balance factor of its right child is positive
         if (balanceFactor < -1 && getBalanceFactor(node.right) > 0) {
+            // If true, perform a right rotation on the right child of the current node to balance its right subtree
             node.right = rotateRight(node.right);
+            // Perform a left rotation on the current node to balance the tree
             return rotateLeft(node);
         }
 
         return node;
-    }
+    }    
 
     // Helper method for deleteNode method
     public void delete(int data) {
         root = deleteNode(root, data);
     }
 
-    // Calculates the minimum value
+    // Finds the minimum value in the tree
     private Node minValueNode(Node node) {
         Node current = node;
-        while (current.left != null)
+        while (current.left != null) // The smallest node will be the farthest node to the left
+            // Continue the loop until you get to the left most node
             current = current.left;
-        return current;
+        return current; // Return the smallest node
     }
 
     // Prints the tree in Pre-Order
