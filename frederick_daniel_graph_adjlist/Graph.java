@@ -39,32 +39,37 @@ public class Graph {
             System.out.println("Error: target \'" + target + "\' does not exist. Please add the vertex before creating an edge.");
             return;
         }
-    
-        // Both vertices exist (or have been added), so add the connection for the source vertex
-        adjacencyLists.get(source).add(new Edge(target, weight));
-        System.out.println("Edge added successfully: " + source + " -> " + target + " (Weight: " + weight + ")");        
+
+        if (!adjacencyLists.get(source).stream().anyMatch(edge -> edge.getTarget().equals(target))) {
+            // Both vertices exist, and there is no existing edge from source to target, so add the connection for the source vertex
+            adjacencyLists.get(source).add(new Edge(target, weight));
+            System.out.println("Edge added successfully: " + source + " -> " + target + " (Weight: " + weight + ")");
+        }
+        else {
+            System.out.println("You already have a connection made from \'" + source + "\' to \'" + target + "\'");
+        }
     }
 
     public String generateGraphRepresentation() {
-        StringBuilder graphRepresentation = new StringBuilder();
+        String graphRepresentation = "";
     
-        for (String vertex : adjacencyLists.keySet()) {
-            graphRepresentation.append("Vertex ").append(vertex).append(": ");
+        for (String vertex: adjacencyLists.keySet()) {
+            graphRepresentation += "Vertex " + vertex + ": ";
     
             List<Edge> edges = adjacencyLists.get(vertex);
             for (int i = 0; i < edges.size(); i++) {
                 Edge edge = edges.get(i);
-                graphRepresentation.append("[").append(edge.getTarget()).append("  ").append("(").append(edge.getWeight()).append(")").append("]");
+                graphRepresentation += "[" + edge.getTarget() + "  " + "(" + edge.getWeight() + ")]";
     
                 if (i != edges.size() - 1) {
-                    graphRepresentation.append(", ");
+                    graphRepresentation += ", ";
                 }
             }
     
-            graphRepresentation.append("\n");
+            graphRepresentation += "\n";
         }
     
-        return graphRepresentation.toString();
+        return graphRepresentation;
     }
 
 }

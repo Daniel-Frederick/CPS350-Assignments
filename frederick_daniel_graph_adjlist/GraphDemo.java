@@ -63,27 +63,38 @@ public class GraphDemo {
 
     System.out.print("Enter the vertex identifier(String): ");
     String vertex = scanner.nextLine();
-    graph.addVertex(vertex);
+    if(vertex != "") {
+      graph.addVertex(vertex.trim());
+    }
+    else {
+      System.out.println("Please enter a value");
+    }
   }
 
 public static void addEdge() {
-    scanner.nextLine(); // Consume any input that my scanner could have
+    try {
+      scanner.nextLine(); // Consume any input that my scanner could have
 
-    // Get the name of the source vertex
-    System.out.print("Enter the source vertex: ");
-    String source = scanner.nextLine();
-
-    // Get the name of the target vertex
-    System.out.print("Enter the target vertex: ");
-    String target = scanner.nextLine();
-
-    // Get the weight for the edge
-    System.out.print("Enter the weight of the edge: ");
-    int weight = scanner.nextInt();
-    scanner.nextLine(); // Consume any input that my scanner could have
-
-    graph.addDirectedEdge(source, target, weight); // Give the user input to create a edge
-    // This method will either print an error message or say the edge was successfully created.  
+      // Get the name of the source vertex
+      System.out.print("Enter the source vertex: ");
+      String source = scanner.nextLine();
+  
+      // Get the name of the target vertex
+      System.out.print("Enter the target vertex: ");
+      String target = scanner.nextLine();
+    
+      // Get the weight for the edge
+      System.out.print("Enter the weight of the edge: ");
+      int weight = scanner.nextInt();
+      scanner.nextLine();
+  
+      graph.addDirectedEdge(source, target, weight); // Give the user input to create a edge
+      // This method will either print an error message or say the edge was successfully created. 
+    }
+    catch(Exception e) {
+      scanner.nextLine();
+      System.out.println("The weight must be an integer value!");
+    } 
 }
 
 
