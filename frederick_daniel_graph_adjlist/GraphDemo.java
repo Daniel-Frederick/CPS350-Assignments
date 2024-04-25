@@ -3,11 +3,11 @@ package frederick_daniel_graph_adjlist;
 import java.util.Scanner;
 
 public class GraphDemo {
-  private static Graph graph = new Graph(); // Initiate the AVLTree tree Object
+  private static Graph graph = new Graph(); // Initiate the Graph Object
   private static Scanner scanner = new Scanner(System.in); // Initiate a Scanner for user input
 
   public static void main(String[] args) {
-    System.out.println("Welcome to the Graph Manager!");
+    System.out.println("Welcome to the Graph Manager!"); // Intro
 
     while (true) { // Loop the menu and ask user for input 
       int menu; // Initiate menu option(int) for use input
@@ -24,19 +24,19 @@ public class GraphDemo {
 
       switch (menu) { // Switch to see what option user entered
         case 1:
-          // User entered "1" and wants to insert nodes into AVLTree
+          // User entered "1" and wants to insert a vertex into the Graph
           addVertex();
           break;
         case 2:
-          // User entered "2" and wants to delete nodes from AVLTree
+          // User entered "2" and wants to add a connect to the Graph
           addEdge();
           break;
         case 3:
-          // User entered "3" and wants to search for a node in the AVLTree
+          // User entered "3" and wants to display the graph
           displayGraph();
           break;
         case 4:
-          // User entered "5" and wants to exit the program
+          // User entered "4" and wants to exit the program
           System.out.println("Exiting the Graph Manager... ");
           System.exit(menu); // Exits the program
           break;
@@ -58,50 +58,55 @@ public class GraphDemo {
     System.out.print("Your choice: ");
   }
 
+  // Method to add a Vertex to the Graph
   public static void addVertex() {
-    scanner.nextLine(); // Consume the invalid input
+    scanner.nextLine(); // Consume any value already in the Scanner
 
     System.out.print("Enter the vertex identifier(String): ");
-    String vertex = scanner.nextLine();
-    if(vertex != "") {
-      graph.addVertex(vertex.trim());
+    String vertex = scanner.nextLine(); // Get vertex name from user
+    if(vertex != "") { // Make sure the user did not enter an empty string
+      // The user entered a name and add it to the Graph
+      graph.addVertex(vertex.trim()); 
     }
     else {
-      System.out.println("Please enter a value");
+      // Runs if the user enters an empty name for the vertex
+      System.out.println("Please enter a vertex name.");
     }
   }
 
-public static void addEdge() {
-    try {
-      scanner.nextLine(); // Consume any input that my scanner could have
+  // Method to add an Edge to the Graph
+  public static void addEdge() {
+      try { 
+        scanner.nextLine(); // Consume any value already in the Scanner
 
-      // Get the name of the source vertex
-      System.out.print("Enter the source vertex: ");
-      String source = scanner.nextLine();
-  
-      // Get the name of the target vertex
-      System.out.print("Enter the target vertex: ");
-      String target = scanner.nextLine();
+        // Get the name of the source vertex
+        System.out.print("Enter the source vertex: ");
+        String source = scanner.nextLine();
     
-      // Get the weight for the edge
-      System.out.print("Enter the weight of the edge: ");
-      int weight = scanner.nextInt();
-      scanner.nextLine();
-  
-      graph.addDirectedEdge(source, target, weight); // Give the user input to create a edge
-      // This method will either print an error message or say the edge was successfully created. 
-    }
-    catch(Exception e) {
-      scanner.nextLine();
-      System.out.println("The weight must be an integer value!");
-    } 
-}
+        // Get the name of the target vertex
+        System.out.print("Enter the target vertex: ");
+        String target = scanner.nextLine();
+      
+        // Get the weight for the edge
+        System.out.print("Enter the weight of the edge: ");
+        int weight = scanner.nextInt(); // If user does not enter an int, am error will occur
+        scanner.nextLine(); // Consume any value in the Scanner
+    
+        graph.addEdge(source, target, weight); // Create an edge given the user input.
+        // If method successful, will say the edge was successfully created. 
+      }
+      catch(Exception e) {
+        // This will only run if user input does not enter a number for the weight
+        scanner.nextLine(); // Consume any value in the Scanner
+        System.out.println("The weight must be an integer value!");
+      } 
+  }
 
-
+  // Method to display the Graph to the user
   public static void displayGraph() {
     // Call the the generateGraphRepresentation method from the Graph class to display the vertices and connections
     System.out.println("Graph Representation: ");
-    System.out.print(graph.generateGraphRepresentation());
+    // graphRepresentation returns a String so you must put it in a system out print
+    System.out.print(graph.displayGraph());
   }
-
 }

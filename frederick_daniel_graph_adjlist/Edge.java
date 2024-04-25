@@ -6,16 +6,16 @@ public class Edge {
 
   // Constructor
   public Edge(String target, int weight) {
-      this.target = target;
-      this.weight = weight;
+    this.target = target;
+    this.weight = weight;
   }
 
   // Getters for target and weight
   public String getTarget() {
-      return target;
+    return target;
   }
 
   public int getWeight() {
-      return weight;
+    return weight;
   }
 }
