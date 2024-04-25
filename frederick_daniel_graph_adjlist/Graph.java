@@ -27,31 +27,34 @@ public class Graph {
             System.out.println("The vertex is already made!");
         }
     }
-    
-    // There is a problem here. 2 Valid vertices do not get past the first if, always saying they don't exist
+
     public void addDirectedEdge(String source, String target, int weight) {
-        // Check if source and target are valid vertices
-        if (!adjacencyLists.containsKey(source) || !adjacencyLists.containsKey(target)) {
-            // One or both of the entered vertices does not exist
-            System.out.println("One or both vertices do not exist.");
+        // Add source vertex if it doesn't exist
+        if (!adjacencyLists.containsKey(source)) {
+            System.out.println("Error: Vertex \'" + source + "\' does not exist. Please add the vertex before creating an edge.");
+            return;
         }
-        else {
-            // Both Vertices exist so add the connection for the source vertex
-            adjacencyLists.get(source).add(new Edge(target, weight));
-            System.out.println("Edge added successfully " + source + " -> " + target + " (Weight: " + weight + ")");
+
+        if (!adjacencyLists.containsKey(target)) { // Add target vertex if it doesn't exist
+            System.out.println("Error: target \'" + target + "\' does not exist. Please add the vertex before creating an edge.");
+            return;
         }
+    
+        // Both vertices exist (or have been added), so add the connection for the source vertex
+        adjacencyLists.get(source).add(new Edge(target, weight));
+        System.out.println("Edge added successfully: " + source + " -> " + target + " (Weight: " + weight + ")");        
     }
 
     public String generateGraphRepresentation() {
         StringBuilder graphRepresentation = new StringBuilder();
     
         for (String vertex : adjacencyLists.keySet()) {
-            graphRepresentation.append(vertex).append(": ");
+            graphRepresentation.append("Vertex ").append(vertex).append(": ");
     
             List<Edge> edges = adjacencyLists.get(vertex);
             for (int i = 0; i < edges.size(); i++) {
                 Edge edge = edges.get(i);
-                graphRepresentation.append("(").append(edge.getTarget()).append(", ").append(edge.getWeight()).append(")");
+                graphRepresentation.append("[").append(edge.getTarget()).append("  ").append("(").append(edge.getWeight()).append(")").append("]");
     
                 if (i != edges.size() - 1) {
                     graphRepresentation.append(", ");
@@ -63,9 +66,5 @@ public class Graph {
     
         return graphRepresentation.toString();
     }
-    
-    // public List<Edge> getAdjacentVertices(String vertex) {
-    //     return adjacencyLists.getOrDefault(vertex, new ArrayList<>());
-    // }
 
 }
