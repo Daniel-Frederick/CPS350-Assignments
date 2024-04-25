@@ -61,33 +61,36 @@ public class GraphDemo {
   public static void addVertex() {
     scanner.nextLine(); // Consume the invalid input
 
-    System.out.println("Enter the vertex identifier(String): ");
+    System.out.print("Enter the vertex identifier(String): ");
     String vertex = scanner.nextLine();
     graph.addVertex(vertex);
   }
 
-  public static void addEdge() {
-    // scanner.nextLine(); // Consume the invalid input
+public static void addEdge() {
+    scanner.nextLine(); // Consume any input that my scanner could have
 
-    System.out.println("Enter the source vertex: ");
+    // Get the name of the source vertex
+    System.out.print("Enter the source vertex: ");
     String source = scanner.nextLine();
 
-    // There might be an error here
-    scanner.nextLine(); // Consume the invalid inputs
-
-    System.out.println("Enter the target vertex: ");
+    // Get the name of the target vertex
+    System.out.print("Enter the target vertex: ");
     String target = scanner.nextLine();
 
-    System.out.println("Enter the weight of the edge: ");
+    // Get the weight for the edge
+    System.out.print("Enter the weight of the edge: ");
     int weight = scanner.nextInt();
-    // There might be an error here
+    scanner.nextLine(); // Consume any input that my scanner could have
 
-    graph.addDirectedEdge(source, target, weight);
-  }
+    graph.addDirectedEdge(source, target, weight); // Give the user input to create a edge
+    // This method will either print an error message or say the edge was successfully created.  
+}
+
 
   public static void displayGraph() {
+    // Call the the generateGraphRepresentation method from the Graph class to display the vertices and connections
     System.out.println("Graph Representation: ");
-    System.out.println(graph.generateGraphRepresentation());
+    System.out.print(graph.generateGraphRepresentation());
   }
 
 }
