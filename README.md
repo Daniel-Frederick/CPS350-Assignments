@@ -15,3 +15,5 @@ Company Inventory - https://drive.google.com/file/d/1urpQN9QGJVlFkgfe1l6pKL-Jn-3
 Restaurant Order - https://drive.google.com/file/d/1tFUTbvTNjqiej5Z8w5hl6vFWmqmJZuxS/view?usp=drive_link
 
 AVLTree - https://drive.google.com/file/d/1JVUOM9QQV7deJtWvIEC-5MD-X4uIyZKE/view?usp=drive_link
+
+graph adjlist - https://docs.google.com/document/d/1LZiN3ArpE5vYaW1QOIuBR5IUKfpxEqc0AGHQVLbYgcE/edit?usp=drive_link
